@@ -102,7 +102,10 @@
 	<!-- ### Build Targets                                                                                      ### -->
 	<!-- ########################################################################################################## -->
 
-	<Target Name="BuildProductMain" DependsOnTargets="MakeInstallBuildFolders;BuildProduct;Localize;CopyFilesToInstall"/>
+	<Target Name="BuildProductMain" DependsOnTargets="MakeInstallBuildFolders;BuildProduct">
+		<MSBuild Projects="$(MSBuildProjectFullPath)" BuildInParallel="true" Targets="Localize"/>
+		<CallTarget Targets="CopyFilesToInstall"/>
+	</Target>
 
 	<Target Name="BuildProduct" DependsOnTargets="CleanInstaller;ProductCompile"/>
 
@@ -263,12 +266,12 @@
 
 	<Target Name="HarvestL10n">
 		<!-- If this is the BASE installer, harvest once and generate component GUID's early because they don't meet the critera for late generation -->
-		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'=='true'"
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'=='true'" BuildInParallel="true"
 			Properties="PatchPrefix=MASTER;GuidGenArg=-gg;L10nSrcDir=$(AppBuildDir)\$(L10nDirSuffix);L10nWxiDir=$(OverridesDestDir)/Master;FixKeyPath=true"/>
 		<!-- If this is the PATCH installer, harvest Master and Update sets and generate component GUID's late so they don't mismatch -->
-		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'!='true'"
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'!='true'" BuildInParallel="true"
 			Properties="PatchPrefix=MASTER;GuidGenArg=-ag;L10nSrcDir=$(AppBuildMasterDir)\$(L10nDirSuffix);L10nWxiDir=$(OverridesDestDir)/Master;FixKeyPath=false"/>
-		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'!='true'"
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="HarvestAllL10ns" Condition="'$(BuildingBaseInstaller)'!='true'" BuildInParallel="true"
 			Properties="PatchPrefix=UPDATE;GuidGenArg=-ag;L10nSrcDir=$(AppBuildDir)\$(L10nDirSuffix);L10nWxiDir=$(OverridesDestDir)/Update;FixKeyPath=false"/>
 	</Target>
 
