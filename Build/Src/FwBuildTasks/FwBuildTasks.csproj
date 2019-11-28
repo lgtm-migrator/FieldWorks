@@ -61,7 +61,7 @@
     </Reference>
     <Reference Include="SIL.TestUtilities, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\Output\Release\SIL.TestUtilities.dll</HintPath>
+      <HintPath>..\..\..\Downloads\SIL.TestUtilities.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="Microsoft.Build.Framework" />
