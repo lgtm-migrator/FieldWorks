@@ -142,7 +142,15 @@ namespace SIL.FieldWorks
 			Environment.SetEnvironmentVariable("PATH", newPath);
 
 			Icu.Wrapper.ConfineIcuVersions(54);
-			Icu.Wrapper.Init();
+			try
+			{
+				Icu.Wrapper.Init();
+			}
+			catch (Exception e)
+			{
+				Console.WriteLine("Exception thrown. Perhaps FieldWorks was not run inside its expected environment?");
+				throw e;
+			}
 			LcmCache.NewerWritingSystemFound += ComplainToUserAboutNewWs;
 			FwRegistryHelper.Initialize();
 

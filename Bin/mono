@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Launch mono within a specified environment.
+#
+# Example usage (possibly in shell scripts to run individual programs):
+#  export MONO_ENVIRON=/path/to/LSDev/environ
+#  /path/to/this/mono Program.exe
+
+if [ -n "$MONO_ENVIRON" -a -f "$MONO_ENVIRON" ]; then
+  pushd "$(dirname "$MONO_ENVIRON")" >/dev/null
+  source "$MONO_ENVIRON"
+  popd >/dev/null
+fi
+exec /usr/bin/mono "$@"
