@@ -183,6 +183,15 @@ namespace SIL.FieldWorks
 					};
 				}
 
+				if(s_appSettings.Update != null && s_appSettings.Update.Behavior != UpdateSettings.Behaviors.DoNotCheck)
+				{
+					MessageBox.Show(
+						"Dear Tester,\nYou have successfully installed a new base installer and patched it." +
+						" Now, you will need to reinstall 9.1.5 to continue receiving updates.",
+						"congratulations");
+					s_appSettings.Update.Behavior = UpdateSettings.Behaviors.DoNotCheck;
+				}
+
 				var reportingSettings = s_appSettings.Reporting;
 				if (reportingSettings == null)
 				{
