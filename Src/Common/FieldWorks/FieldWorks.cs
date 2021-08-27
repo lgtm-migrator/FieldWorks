@@ -1776,9 +1776,9 @@ namespace SIL.FieldWorks
 							}
 							catch (Exception e)
 							{
-								ErrorReport.AddProperty("FLEXBRIDGEDIR", Environment.GetEnvironmentVariable("FLEXBRIDGEDIR"));
-								ErrorReport.AddProperty("FLExBridgeFolder", FwDirectoryFinder.FlexBridgeFolder);
-								ErrorReport.ReportNonFatalException(e);
+								ErrorReporter.AddProperty("FLEXBRIDGEDIR", Environment.GetEnvironmentVariable("FLEXBRIDGEDIR"));
+								ErrorReporter.AddProperty("FLExBridgeFolder", FwDirectoryFinder.FlexBridgeFolder);
+								SafelyReportException(e, null, false);
 							}
 							break;
 						case WelcomeToFieldWorksDlg.ButtonPress.Import:
@@ -3571,7 +3571,6 @@ namespace SIL.FieldWorks
 			ErrorReporter.AddProperty("Culture", CultureInfo.CurrentCulture.ToString());
 			using (Bitmap bm = new Bitmap(10, 10))
 			{
-
 				ErrorReporter.AddProperty("ScreenDpiX", bm.HorizontalResolution.ToString());
 				ErrorReporter.AddProperty("ScreenDpiY", bm.VerticalResolution.ToString());
 			}
