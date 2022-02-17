@@ -286,7 +286,7 @@
 		<PalasoNugetVersion>9.0.0-beta0103</PalasoNugetVersion>
 		<Palaso4ParatextNugetVersion>8.1.0-beta0035</Palaso4ParatextNugetVersion>
 		<ParatextNugetVersion>9.2.6.1</ParatextNugetVersion>
-		<LcmNugetVersion>10.2.0-beta0024</LcmNugetVersion>
+		<LcmNugetVersion>10.2.0-alpha0025</LcmNugetVersion>
 		<IcuNugetVersion>70.1.0</IcuNugetVersion>
 		<!--Todo: use PalasoBuildType, when it refers to somewhere that has the IPCFramework.-->
 		<!-- bt278 is the develop branch build of IPCFramework for Windows development. Update when appropriate. -->
@@ -392,14 +392,14 @@
 		<LcmOutputBaseFiles Include="SIL.LCModel.Tests.dll" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Tests.dll.config" />
 
-		<LcmOutputBaseFiles Include="SIL.LCModel.FixData.pdb" />
+<!--		<LcmOutputBaseFiles Include="SIL.LCModel.FixData.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Utils.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Utils.Tests.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Core.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Core.Tests.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.Build.Tasks.pdb" />
 		<LcmOutputBaseFiles Include="SIL.LCModel.pdb" />
-		<LcmOutputBaseFiles Include="SIL.LCModel.Tests.pdb" />
+		<LcmOutputBaseFiles Include="SIL.LCModel.Tests.pdb" /> -->
 		<LcmOutputCommonFiles Include="KernelInterfaces/FwKernelTlb.json" />
 
 		<LcmFwKernelFiles Include="KernelInterfaces/common.idh" />
@@ -476,17 +476,17 @@
 			<SILNugetPackages Include="Icu4c.Win.Fw.Lib"><Version>$(IcuNugetVersion)</Version><Path>runtimes/**/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="Icu4c.Win.Fw.Lib"><Version>$(IcuNugetVersion)</Version><Path>build/native/**/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<!-- LCM and related packages -->
-			<SILNugetPackages Include="SIL.LCModel"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="SIL.LCModel"><Version>$(LcmNugetVersion)</Version><Path>contentFiles/**/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Build.Tasks"><Version>$(LcmNugetVersion)</Version><Path>tools/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Core"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Build.Tasks"><Version>$(LcmNugetVersion)</Version><Path>tools/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Core"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="SIL.LCModel.Core"><Version>$(LcmNugetVersion)</Version><Path>contentFiles/**/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Core.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.FixData"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Utils"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Utils.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
-			<SILNugetPackages Include="SIL.LCModel.Tools"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Core.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.FixData"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Utils"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Utils.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Tests"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
+			<SILNugetPackages Include="SIL.LCModel.Tools"><Version>$(LcmNugetVersion)</Version><Path>lib/net461/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="NHunspell.Patched"><Version>1.2.5554</Version><Path>lib/net/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="NHunspell.Patched"><Version>1.2.5554</Version><Path>runtimes/win7-$(Platform)/native/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
 			<SILNugetPackages Include="SharpZipLib"><Version>0.86.0</Version><Path>lib/20/*.*</Path><NoSymbols>true</NoSymbols></SILNugetPackages>
@@ -591,11 +591,11 @@
 			SkipUnchangedFiles="true" OverwriteReadOnlyFiles="true"/>
 		<!-- Copy ICU dll's and exe's to lib/x64 and lib/x86. The ICU .lib files don't need included. -->
 		<ItemGroup>
-			<IcuFileSet32 Include="$(DownloadsDir)/win7-x86/icu*.dll" />
+			<IcuFileSet32 Include="$(DownloadsDir)/win7-x86/**/icu*.dll" />
 			<IcuFileSet32 Include="$(DownloadsDir)/win-x86/gennorm2.exe" />
 		</ItemGroup>
 		<ItemGroup>
-			<IcuFileSet64 Include="$(DownloadsDir)/win7-x64/icu*.dll" />
+			<IcuFileSet64 Include="$(DownloadsDir)/win7-x64/**/icu*.dll" />
 			<IcuFileSet64 Include="$(DownloadsDir)/win-x64/gennorm2.exe" />
 		</ItemGroup>
 		<!-- Include 32-bit ICU, even if arch is x64, so we can provide 32-bit ICU for 32-bit Paratext to use when the tools interact. -->
@@ -639,7 +639,7 @@
 			<NuGottenFiles Include="$(GeckoDir)/content/**/*.*"/>
 			<NuGottenFiles Include="$(PackagesDir)/Analytics.3.6.0/lib/net461/Analytics.dll"/>
 			<NuGottenFiles Include="$(PackagesDir)/DotNetZip.1.13.8/lib/net40/*.*"/>
-			<NuGottenFiles Include="$(PackagesDir)/icu.net.2.8.0-beta.10/lib/net451/icu.net.dll"/>
+			<NuGottenFiles Include="$(PackagesDir)/icu.net.2.8.1/lib/net451/icu.net.dll"/>
 			<NuGottenFiles Include="$(PackagesDir)/Microsoft.Extensions.DependencyModel.2.0.4/lib/net451/Microsoft.Extensions.DependencyModel.dll"/>
 			<NuGottenFiles Include="$(PackagesDir)/Microsoft.Win32.Registry.4.7.0/lib/net461/Microsoft.Win32.Registry.dll" Condition="'$(OS)'=='Windows_NT'"/>
 			<NuGottenFiles Include="$(PackagesDir)/NAudio.1.10.0/lib/net35/NAudio.dll"/>
